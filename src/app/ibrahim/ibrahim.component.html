@@ -1,0 +1,63 @@
+<!-- <input type="text" [(ngModel)]=ngng"message">
+<input type="text" [value]="message">
+<input type="text" [type]="message" [value]="message">
+<h1>{{ message }}</h1>
+<button [class]="message">click me</button>  -->
+<br><button class="btn btn-primary" (click)="login()">Login</button>
+<h1>{{'hello world'
+     }}</h1>
+
+<div *ngFor="let user of users;let i=index">
+    <h1><a [routerLink]="['/about',i,user.name]">{{user.name}}</a></h1>
+ </div>
+ <input class="ml-3 mr-3" type
+
+
+
+ ="text" [(ngModel)]="message">
+ <button class="btn-primary btn" (click)="add()">Add</button>
+ <div>
+ <table class="table table-borderd">
+    <thead></thead>
+    <tbody>
+        <tr *ngFor="let item of tasks;let i=index" [hidden]="item.done">
+            <td>{{ i+1 }}</td>
+            <td>{{ item.name }}</td>
+            <td><i ngClass="'fa fa-check':item.done,'fa fa-times':item.done"></i></td>
+            <!-- {{item.done?'fa fa-check':'fa fa-times'}} -->
+            <td><button class="btn btn-dark" (click)="item.done?item.done=false:item.done=true">{{item.done?'Undo':'check'}}</button></td>
+
+        </tr>
+    </tbody>
+ </table>
+</div>
+
+<div class="container">
+    <div class="card p-5 shadow-lg w-100">
+        <div class="d-flex">
+            <button class="btn {{show=='signin'?'btn-primary':'btn-light'}} col-4" (click)="show='signin'">Sign In</button>
+            <button class="btn  {{show=='signup'?'btn-primary':'btn-light'}} col-4" (click)="show='signup'">Sign Up</button>
+        </div>
+
+        <div *ngIf="show =='signin'" >
+            <h1 class=""> Sign In Form</h1>
+            <form style="background-color: rgb(190, 170, 54);text-shadow: 2px 2px 4px #000000;background-image:linear-gradient(#ff7800,#130f40)" class="container">
+            <label class="text-weight-bold text-white" for="FirstName">FirstName</label><br>
+            <input   type="text" class="rounded"><br>
+            <label class="text-weight-bold text-white" for="LastName">LastName</label><br>
+            <input type="text" class="rounded"><br>
+            <label class="text-weight-bold text-white" for="LastName">Password</label><br>
+            <input type="password" class="rounded"><br>
+                   <button class="background-color: rgb(190, 170, 54); mb-2 m-5  text-justify">Log In</button></form>
+        </div>
+
+        <div *ngIf="show =='signup'">
+            <h1 class="ml-2 text-justify">Sign up Form</h1>
+        </div>
+
+    </div>
+    <a [routerLink]="'/about'"> Go to About</a>
+    <a [routerLink]="'/profile'">go to profile</a>
+
+
+</div>
